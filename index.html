@@ -4,9 +4,30 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Rock Paper Scissors</title>
   </head>
   <body>
+    <div class="status-information">
+      <p class="status-information__text">Choose!</p>
+    </div>
+
+    <section class="choose">
+      <button class="choose__option rock">Rock</button>
+      <button class="choose__option paper">Paper</button>
+      <button class="choose__option scissors">Scissors</button>
+    </section>
+
+    <section class="comparsion hide">
+      <button class="comparsion__player"></button>
+      <button class="comparsion__computer"></button>
+    </section>
+
+    <section class="points hide">
+      <p class="points__player"></p>
+      <p class="points__computer"></p>
+    </section>
+
     <script src="script.js"></script>
   </body>
 </html>
