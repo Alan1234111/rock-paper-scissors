@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Rock Paper Scissors</title>
   </head>
@@ -13,9 +19,15 @@
     </div>
 
     <section class="choose">
-      <button class="choose__option rock">Rock</button>
-      <button class="choose__option paper">Paper</button>
-      <button class="choose__option scissors">Scissors</button>
+      <button class="choose__option rock">
+        <img src="/img/rock.png" alt="rock" />
+      </button>
+      <button class="choose__option paper">
+        <img src="/img/paper.png" alt="paper" />
+      </button>
+      <button class="choose__option scissors">
+        <img src="/img/scissors.png" alt="scissors" />
+      </button>
     </section>
 
     <section class="comparsion hide">
@@ -28,6 +40,6 @@
       <p class="points__computer"></p>
     </section>
 
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
   </body>
 </html>

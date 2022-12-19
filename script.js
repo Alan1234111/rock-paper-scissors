@@ -44,8 +44,6 @@ function whoWins(playerChoice, computerChoice) {
     console.log("YOU LOSE");
   } else if (playerChoice.toLowerCase() == computerChoice) {
     console.log("DRAW");
-  } else {
-    console.log("You must put 1 of 3 options");
   }
 }
 
