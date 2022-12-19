@@ -114,6 +114,16 @@ section {
   transition: 0.2s;
 }
 
+/* points */
+
+.points {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10rem;
+  color: white;
+}
+
 .hide {
   display: none;
 }
