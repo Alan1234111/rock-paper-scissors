@@ -28,6 +28,11 @@
 // na koncu wyswietlic wynik
 
 const optionsButtons = document.querySelectorAll(".choose__option");
+const gameResultInformation = document.querySelector(".comparsion__result");
+
+// const playerPoints = document.querySelector(".points__player");
+// const computerPoints = document.querySelector(".points__computer");
+const computerChoiceImg = document.querySelector(".comparsion__computer img");
 
 const numberOfWins = {
   playerWins: 0,
@@ -38,10 +43,28 @@ const aiOptions = ["rock", "paper", "scissors"];
 function chooseRandomOption() {
   return aiOptions[Math.floor(Math.random() * 3)];
 }
-
 const computerChoice = chooseRandomOption();
 
+function displayResult() {
+  //dodac wlasciwosci do tekstu zeby sie pojawial po paru sekundach
+  setTimeout(() => {
+    computerChoiceImg.src = `/img/${computerChoice}.png`;
+    computerChoiceImg.style.scale = "1";
+    setTimeout(() => {
+      gameResultInformation.style.width = "300px";
+      gameResultInformation.style.height = "100px";
+      gameResultInformation.style.color = "white";
+      setTimeout(() => {
+        changeStep();
+      }, 2000);
+    }, 1000);
+  }, 500);
+
+  // changeStep();
+}
+
 function whoWins(playerChoice, computerChoice) {
+  displayResult();
   if (
     (playerChoice.toLowerCase() == "rock" && computerChoice == "scissors") ||
     (playerChoice.toLowerCase() == "scissors" && computerChoice == "paper") ||
