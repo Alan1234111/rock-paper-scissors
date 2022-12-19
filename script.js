@@ -23,23 +23,22 @@
 // create an object which contains number of players win and number of computer win
 // przekazac do funckji wybor gracza
 // jesli gracz wybierze jedna z opcji przejs do etapu 2
+// dodac animacje pojawiajacego sie wyniku kto wygral
 // jesli gracz wygra zwiekszyc ilosc pkt dla niego i na odwrot
 // na koncu wyswietlic wynik
 
 const optionsButtons = document.querySelectorAll(".choose__option");
-
-const aiOptions = ["rock", "paper", "scissors"];
 
 const numberOfWins = {
   playerWins: 0,
   aiWins: 0,
 };
 
+const aiOptions = ["rock", "paper", "scissors"];
 function chooseRandomOption() {
   return aiOptions[Math.floor(Math.random() * 3)];
 }
 
-const playerChoice = null;
 const computerChoice = chooseRandomOption();
 
 function whoWins(playerChoice, computerChoice) {
@@ -60,11 +59,25 @@ function whoWins(playerChoice, computerChoice) {
   }
 }
 
-function getPlayerChoice() {
-  playerChoice = this.dataset.option;
+let step = 0;
+function changeStep() {
+  const sectionSteps = document.querySelectorAll("section");
+
+  if (step > 2) {
+    step = 0;
+  }
+
+  sectionSteps[step].classList.add("hide");
+  step++;
+  sectionSteps[step].classList.remove("hide");
 }
 
-// whoWins(playerChoice, computerChoice);
+function getPlayerChoice() {
+  let playerChoice = this.dataset.option;
+  changeStep();
+  whoWins(playerChoice, computerChoice);
+}
+
 optionsButtons.forEach((optionButton) =>
   optionButton.addEventListener("click", getPlayerChoice)
 );
