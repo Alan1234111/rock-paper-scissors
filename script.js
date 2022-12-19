@@ -30,20 +30,21 @@
 const optionsButtons = document.querySelectorAll(".choose__option");
 const gameResultInformation = document.querySelector(".comparsion__result");
 
-// const playerPoints = document.querySelector(".points__player");
-// const computerPoints = document.querySelector(".points__computer");
+const playerPoints = document.querySelector(".points__player");
+const computerPoints = document.querySelector(".points__computer");
 const computerChoiceImg = document.querySelector(".comparsion__computer img");
+const playerChoiceImg = document.querySelector(".comparsion__player img");
 
 const numberOfWins = {
   playerWins: 0,
-  aiWins: 0,
+  computerWins: 0,
 };
 
 const aiOptions = ["rock", "paper", "scissors"];
-function chooseRandomOption() {
+function getComputerChoice() {
   return aiOptions[Math.floor(Math.random() * 3)];
 }
-const computerChoice = chooseRandomOption();
+const computerChoice = getComputerChoice();
 
 function displayResult() {
   //dodac wlasciwosci do tekstu zeby sie pojawial po paru sekundach
@@ -70,15 +71,19 @@ function whoWins(playerChoice, computerChoice) {
     (playerChoice.toLowerCase() == "scissors" && computerChoice == "paper") ||
     (playerChoice == "paper" && computerChoice == "rock")
   ) {
-    console.log("Congratulations YOU WIN!");
+    gameResultInformation.textContent = "You Win!";
+    numberOfWins.playerWins++;
+    playerPoints.textContent = numberOfWins.playerWins;
   } else if (
     (playerChoice.toLowerCase() == "rock" && computerChoice == "paper") ||
     (playerChoice.toLowerCase() == "scissors" && computerChoice == "rock") ||
     (playerChoice == "paper" && computerChoice == "scissors")
   ) {
-    console.log("YOU LOSE");
+    gameResultInformation.textContent = "You Lose!";
+    numberOfWins.computerWins++;
+    playerPoints.textContent = numberOfWins.computerWins;
   } else if (playerChoice.toLowerCase() == computerChoice) {
-    console.log("DRAW");
+    gameResultInformation.textContent = "Draw";
   }
 }
 
@@ -97,6 +102,8 @@ function changeStep() {
 
 function getPlayerChoice() {
   let playerChoice = this.dataset.option;
+  playerChoiceImg.src = `img/${playerChoice}.png`;
+
   changeStep();
   whoWins(playerChoice, computerChoice);
 }
