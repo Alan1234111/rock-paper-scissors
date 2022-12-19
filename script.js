@@ -44,7 +44,15 @@ const aiOptions = ["rock", "paper", "scissors"];
 function getComputerChoice() {
   return aiOptions[Math.floor(Math.random() * 3)];
 }
-const computerChoice = getComputerChoice();
+let computerChoice = getComputerChoice();
+
+function resetValues() {
+  computerChoice = getComputerChoice();
+  computerChoiceImg.style.scale = "0";
+  gameResultInformation.style.width = "0px";
+  gameResultInformation.style.height = "0px";
+  gameResultInformation.style.color = "transparent";
+}
 
 function displayResult() {
   //dodac wlasciwosci do tekstu zeby sie pojawial po paru sekundach
@@ -57,6 +65,9 @@ function displayResult() {
       gameResultInformation.style.color = "white";
       setTimeout(() => {
         changeStep();
+        setTimeout(() => {
+          changeStep();
+        }, 2000);
       }, 2000);
     }, 1000);
   }, 500);
@@ -81,7 +92,7 @@ function whoWins(playerChoice, computerChoice) {
   ) {
     gameResultInformation.textContent = "You Lose!";
     numberOfWins.computerWins++;
-    playerPoints.textContent = numberOfWins.computerWins;
+    computerPoints.textContent = numberOfWins.computerWins;
   } else if (playerChoice.toLowerCase() == computerChoice) {
     gameResultInformation.textContent = "Draw";
   }
@@ -91,12 +102,13 @@ let step = 0;
 function changeStep() {
   const sectionSteps = document.querySelectorAll("section");
 
-  if (step > 2) {
-    step = 0;
-  }
-
   sectionSteps[step].classList.add("hide");
-  step++;
+  if (step == 2) {
+    step = 0;
+    resetValues();
+  } else {
+    step++;
+  }
   sectionSteps[step].classList.remove("hide");
 }
 
