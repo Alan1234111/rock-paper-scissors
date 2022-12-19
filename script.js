@@ -20,6 +20,12 @@
 //     else if users put something diffrent than one of 3 options
 //        then annoucment that he must put diffrent variable
 
+// create an object which contains number of players win and number of computer win
+// przekazac do funckji wybor gracza
+// jesli gracz wybierze jedna z opcji przejs do etapu 2
+// jesli gracz wygra zwiekszyc ilosc pkt dla niego i na odwrot
+// na koncu wyswietlic wynik
+
 const options = ["rock", "paper", "scissors"];
 
 function chooseRandomOption() {
