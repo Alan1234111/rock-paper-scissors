@@ -26,13 +26,20 @@
 // jesli gracz wygra zwiekszyc ilosc pkt dla niego i na odwrot
 // na koncu wyswietlic wynik
 
-const options = ["rock", "paper", "scissors"];
+const optionsButtons = document.querySelectorAll(".choose__option");
+
+const aiOptions = ["rock", "paper", "scissors"];
+
+const numberOfWins = {
+  playerWins: 0,
+  aiWins: 0,
+};
 
 function chooseRandomOption() {
-  return options[Math.floor(Math.random() * 3)];
+  return aiOptions[Math.floor(Math.random() * 3)];
 }
 
-const playerChoice = prompt("What is your choice (rock, paper, scissors)");
+const playerChoice = null;
 const computerChoice = chooseRandomOption();
 
 function whoWins(playerChoice, computerChoice) {
@@ -53,4 +60,11 @@ function whoWins(playerChoice, computerChoice) {
   }
 }
 
-whoWins(playerChoice, computerChoice);
+function getPlayerChoice() {
+  playerChoice = this.dataset.option;
+}
+
+// whoWins(playerChoice, computerChoice);
+optionsButtons.forEach((optionButton) =>
+  optionButton.addEventListener("click", getPlayerChoice)
+);

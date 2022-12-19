@@ -18,14 +18,14 @@
       <p class="status-information__text">Choose!</p>
     </div>
 
-    <section class="choose hide">
-      <button class="choose__option rock">
+    <section class="choose">
+      <button data-option="rock" class="choose__option rock">
         <img src="/img/rock.png" alt="rock" />
       </button>
-      <button class="choose__option paper">
+      <button data-option="paper" class="choose__option paper">
         <img src="/img/paper.png" alt="paper" />
       </button>
-      <button class="choose__option scissors">
+      <button data-option="scissors" class="choose__option scissors">
         <img src="/img/scissors.png" alt="scissors" />
       </button>
     </section>
@@ -42,12 +42,12 @@
       </button>
     </section>
 
-    <section class="points">
+    <section class="points hide">
       <p class="points__player">1</p>
       <span>:</span>
       <p class="points__computer">5</p>
     </section>
 
-    <!-- <script src="script.js"></script> -->
+    <script src="script.js"></script>
   </body>
 </html>
