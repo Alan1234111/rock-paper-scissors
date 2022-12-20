@@ -131,6 +131,33 @@ section {
   color: white;
 }
 
+.end-game-popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 80px;
+  font-size: 2.5rem;
+  color: white;
+}
+
+.points-container-popup {
+  display: flex;
+}
+
+.try-again {
+  padding: 15px;
+  border: white 2px solid;
+  border-radius: 20px;
+  background-color: transparent;
+  color: white;
+}
+
+.try-again:hover {
+  background-color: white;
+  color: black;
+}
+
 .hide {
   display: none;
 }

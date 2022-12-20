@@ -18,7 +18,7 @@
       <p class="status-information__text">Choose!</p>
     </div>
 
-    <section class="choose">
+    <section class="choose hide">
       <button data-option="rock" class="choose__option rock">
         <img src="/img/rock.png" alt="rock" />
       </button>
@@ -46,6 +46,16 @@
       <p class="points__player">0</p>
       <span>:</span>
       <p class="points__computer">0</p>
+    </section>
+
+    <section class="end-game-popup">
+      <p>Congratulation you win</p>
+      <div class="points-container-popup">
+        <p class="end-player-points">5</p>
+        <span>:</span>
+        <p class="end-computer-points">3</p>
+      </div>
+      <button class="try-again">Try Again</button>
     </section>
 
     <script src="script.js"></script>

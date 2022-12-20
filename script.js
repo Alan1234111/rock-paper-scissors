@@ -34,46 +34,61 @@ const playerPoints = document.querySelector(".points__player");
 const computerPoints = document.querySelector(".points__computer");
 const computerChoiceImg = document.querySelector(".comparsion__computer img");
 const playerChoiceImg = document.querySelector(".comparsion__player img");
+const statusInformationText = document.querySelector(
+  ".status-information__text"
+);
 
+// stores number of wins players and computer
 const numberOfWins = {
   playerWins: 0,
   computerWins: 0,
 };
 
+// stores options which can computer choose
 const aiOptions = ["rock", "paper", "scissors"];
+
+// take random option from aiOptions
 function getComputerChoice() {
   return aiOptions[Math.floor(Math.random() * 3)];
 }
+
+// stores computerchoice
 let computerChoice = getComputerChoice();
 
+// reset all values for the animations to load
 function resetValues() {
   computerChoice = getComputerChoice();
   computerChoiceImg.style.scale = "0";
   gameResultInformation.style.width = "0px";
   gameResultInformation.style.height = "0px";
   gameResultInformation.style.color = "transparent";
+  statusInformationText.textContent = "Choose!";
 }
 
+// display what computer choose and animation to show text load
 function displayResult() {
-  //dodac wlasciwosci do tekstu zeby sie pojawial po paru sekundach
+  // everything follows after copule of seconds
   setTimeout(() => {
     computerChoiceImg.src = `/img/${computerChoice}.png`;
     computerChoiceImg.style.scale = "1";
     setTimeout(() => {
-      gameResultInformation.style.width = "300px";
+      gameResultInformation.style.width = "200px";
       gameResultInformation.style.height = "100px";
       gameResultInformation.style.color = "white";
       setTimeout(() => {
         changeStep();
+        statusInformationText.textContent = "Points";
         setTimeout(() => {
           changeStep();
         }, 2000);
       }, 2000);
     }, 1000);
   }, 500);
-
-  // changeStep();
 }
+
+// playerWins() {}
+
+// computerWins() {}
 
 function whoWins(playerChoice, computerChoice) {
   displayResult();
@@ -96,9 +111,16 @@ function whoWins(playerChoice, computerChoice) {
   } else if (playerChoice.toLowerCase() == computerChoice) {
     gameResultInformation.textContent = "Draw";
   }
+
+  if (numberOfWins.playerWins == 5) {
+    playerWins();
+  } else if (numberOfWins.computerWins == 5) {
+    computerWins();
+  }
 }
 
 let step = 0;
+// change display
 function changeStep() {
   const sectionSteps = document.querySelectorAll("section");
 
@@ -115,7 +137,7 @@ function changeStep() {
 function getPlayerChoice() {
   let playerChoice = this.dataset.option;
   playerChoiceImg.src = `img/${playerChoice}.png`;
-
+  statusInformationText.textContent = "Check Result!";
   changeStep();
   whoWins(playerChoice, computerChoice);
 }
