@@ -56,9 +56,9 @@ function displayResult() {
         changeStep();
         statusInformationText.textContent = "Points";
         setTimeout(() => {
-          if (numberOfWins.playerWins == 1) {
+          if (numberOfWins.playerWins == 5) {
             playerWins();
-          } else if (numberOfWins.computerWins == 1) {
+          } else if (numberOfWins.computerWins == 5) {
             computerWins();
           } else {
             changeStep();
