@@ -46,7 +46,7 @@ function resetValues() {
 function displayResult() {
   // everything follows after copule of seconds
   setTimeout(() => {
-    computerChoiceImg.src = `/img/${computerChoice}.png`;
+    computerChoiceImg.src = `img/${computerChoice}.png`;
     computerChoiceImg.style.scale = "1";
     setTimeout(() => {
       gameResultInformation.style.width = "200px";
