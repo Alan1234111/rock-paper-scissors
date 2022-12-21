@@ -4,9 +4,60 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
     <title>Rock Paper Scissors</title>
   </head>
   <body>
+    <div class="status-information">
+      <p class="status-information__text">Choose!</p>
+    </div>
+
+    <section class="choose">
+      <button data-option="rock" class="choose__option rock">
+        <img src="img/rock.png" alt="rock" />
+      </button>
+      <button data-option="paper" class="choose__option paper">
+        <img src="img/paper.png" alt="paper" />
+      </button>
+      <button data-option="scissors" class="choose__option scissors">
+        <img src="img/scissors.png" alt="scissors" />
+      </button>
+    </section>
+
+    <section class="comparsion hide">
+      <button class="comparsion__player">
+        <img src="" alt="" />
+      </button>
+
+      <p class="comparsion__result"></p>
+
+      <button class="comparsion__computer">
+        <img src="" alt="" />
+      </button>
+    </section>
+
+    <section class="points hide">
+      <p class="points__player">0</p>
+      <span>:</span>
+      <p class="points__computer">0</p>
+    </section>
+
+    <div class="end-game-popup hide">
+      <p class="end-game-information"></p>
+      <div class="points-container-popup">
+        <p class="end-player-points"></p>
+        <span>:</span>
+        <p class="end-computer-points"></p>
+      </div>
+      <button class="try-again">Try Again</button>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
